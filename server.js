@@ -4,25 +4,14 @@ const path = require("path") // require path to use routes
 
 
 const app = express()
+const ejs = require("ejs")
 app.use(express.static("public"))
+app.set("view engine", "ejs")
 
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "index.html"))
+    res.render("index");
 })
 
-app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "about.html"))
-})
-
-app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "contact.html"))
-})
-
-app.get("/about", (req, res) => {
-    res.json({
-        name: "Tim Balilo"
-    })
-})
 
 
 
