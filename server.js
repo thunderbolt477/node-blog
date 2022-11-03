@@ -6,7 +6,7 @@ const path = require("path") // require path to use routes
 const app = express()
 const ejs = require("ejs")
 const mongoose = require("mongoose")
-await mongoose.connect("mongodb://localhost/my_database")
+mongoose.connect("mongodb://localhost/my_database")
 
 
 app.use(express.static("public"))
@@ -19,7 +19,21 @@ app.get("/", (req, res) => {
     res.render("index");
 })
 
+app.get("/about", (req,res) => {
+    res.render("about")
+})
 
+app.get("/contact", (req,res) => {
+    res.render("contact")
+})
+
+app.get("/post", (req,res) => {
+    res.render("post")
+})
+
+app.get("/posts/new", (req, res) => {
+    res.render("create")
+})
 
 
 
